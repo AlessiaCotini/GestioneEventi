@@ -27,6 +27,13 @@ public class Application {
         Persona persona = new Persona("Alessia", "Cotini", "alessia.cotini@icloud.com", LocalDate.of(1997, 12,29), TipoSesso.F);
         Location location = new Location("Firenze Rocks", "Firenze");
         Partecipazione partecipazione = new Partecipazione( persona.getNome_persona(),StatoPartecipazione.CONFERMATA);
+
+        personaDAO.save(persona);
+        eventiDao.save(evento);
+        locationDAO.save(location);
+        partecipazioneDAO.save(partecipazione);
+
+        System.out.println();
         System.out.println("Hello");
 
 
