@@ -1,14 +1,17 @@
 package alessiacotini.entities;
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @Entity @Table(name = "eventi")
 public class Evento {
 
     @Id
     @Column (name= "evento_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue
+    private UUID evento_id;
 
     @Column (name = "titolo_evento")
     private String titolo;
@@ -26,6 +29,11 @@ public class Evento {
     @Column (name = "numero_max_partecipanti")
     private int numeromax;
 
+    @ManyToOne
+    @JoinColumn(name = "location_id", nullable = false)
+    private Location location;
+
+
     public Evento(){};
     public Evento (String titolo, LocalDate dataevento,String descrizione,TipoEvento tipoevento,int numeromax){
         this.titolo = titolo;
@@ -39,10 +47,14 @@ public class Evento {
         return titolo;
     }
 
+    public UUID getEvento_id() {
+        return UUID.fromString(String.valueOf(evento_id));
+    }
+
     @Override
     public String toString() {
+
         return "Evento{" +
-                "id=" + id +
                 ", titolo='" + titolo + '\'' +
                 ", dataevento=" + dataevento +
                 ", descrizione='" + descrizione + '\'' +

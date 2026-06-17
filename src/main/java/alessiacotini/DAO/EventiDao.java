@@ -4,6 +4,8 @@ import alessiacotini.entities.Evento;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
+import java.util.UUID;
+
 
 public class EventiDao {
     private final EntityManager entityManager;
@@ -20,13 +22,13 @@ public class EventiDao {
         System.out.println("L'evento "+ ev.getTitolo() + " è stato aggiunto al DATABASE");
     }
 
-    public Evento getById (int id){
+    public Evento getById (UUID id){
         Evento evDalDB = this.entityManager.find(Evento.class, id);
         if (evDalDB == null)throw new RuntimeException("Evento non disponibile in archivio");
         return evDalDB;
     }
 
-    public void deleteById (int id){
+    public void deleteById (UUID id){
         Evento evDalDB = this.getById(id);
         EntityTransaction transazione = this.entityManager.getTransaction();
         transazione.begin();
