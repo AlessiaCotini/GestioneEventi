@@ -28,7 +28,7 @@ public class Partecipazione {
 
     public Partecipazione(){
     }
-    public Partecipazione(String persona_partecipazione, String evento_id, StatoPartecipazione stato_partecipazione, Persona personaId){
+    public Partecipazione(String persona_partecipazione, StatoPartecipazione stato_partecipazione){
         this.persona_partecipazione = persona_partecipazione;
         this.stato_partecipazione = stato_partecipazione;
     }
