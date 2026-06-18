@@ -34,6 +34,8 @@ public class Persona {
             (mappedBy = "persona")
     private List<Partecipazione> lista_partecipazioni = new ArrayList<>();
 
+
+
     public Persona(){}
     public Persona(String nome_persona, String cognome_persona, String email_persona, LocalDate data_di_nascita, TipoSesso sesso_persona) {
         this.nome_persona = nome_persona;

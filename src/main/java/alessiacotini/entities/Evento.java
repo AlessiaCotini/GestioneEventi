@@ -5,8 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Entity @Table(name = "eventi")
-public class Evento {
+@Entity
+@Table(name = "eventi")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "tipo_di_evento")
+public abstract class Evento {
 
     @Id
     @Column (name= "evento_id")
@@ -42,6 +45,7 @@ public class Evento {
         this.tipoevento = tipoevento;
         this.numeromax = numeromax;
     }
+
 
     public String getTitolo() {
         return titolo;

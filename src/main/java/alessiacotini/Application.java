@@ -9,9 +9,6 @@ import alessiacotini.entities.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.hibernate.dialect.function.array.PostgreSQLArrayTrimEmulation;
-
-import java.time.LocalDate;
 
 
 public class Application {
@@ -23,19 +20,6 @@ public class Application {
         PersonaDAO personaDAO = new PersonaDAO(entityManager);
         LocationDAO locationDAO = new LocationDAO(entityManager);
 
-        Evento evento = new Evento("concerto the cure", LocalDate.of(2024,06,14), "firenze rocks",TipoEvento.PUBBLICO, 150000);
-        Persona persona = new Persona("Alessia", "Cotini", "alessia.cotini@icloud.com", LocalDate.of(1997, 12,29), TipoSesso.F);
-        Location location = new Location("Firenze Rocks", "Firenze");
-        Partecipazione partecipazione = new Partecipazione( persona.getNome_persona(),StatoPartecipazione.CONFERMATA);
-
-        personaDAO.save(persona);
-        eventiDao.save(evento);
-        locationDAO.save(location);
-        partecipazioneDAO.save(partecipazione);
-
-        System.out.println();
         System.out.println("Hello");
-
-
     }
 }
