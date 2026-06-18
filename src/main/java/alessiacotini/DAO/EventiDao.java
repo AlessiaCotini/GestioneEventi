@@ -1,9 +1,14 @@
 package alessiacotini.DAO;
 
+import alessiacotini.entities.Concerto;
 import alessiacotini.entities.Evento;
+import alessiacotini.entities.Generes;
+import alessiacotini.entities.PartitaDiCalcio;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 
+import java.util.List;
 import java.util.UUID;
 
 
@@ -37,9 +42,22 @@ public class EventiDao {
         System.out.println("L'evento "+ evDalDB.getTitolo()+ " è stato eliminato dal DATABASE");
     }
 
-    public void getConcertiInStreaming(){}
-    public void getConcertiPerGenere(){}
-    public void getPartiteVinteInCasa(){}
-    public void getPartiteVinteInTrasferta(){}
+    public List<Concerto> getConcertiInStreaming(List<Concerto> concerti){
+        TypedQuery<Concerto> query= entityManager.createQuery("SELECT concerti FROM Concerto concerti WHERE concerti.streaming = true", Concerto.class);
+        return query.getResultList();
+    }
+    public List<Concerto> getConcertiPerGenere(Generes params){
+        TypedQuery<Concerto> query = entityManager.createQuery("SELECT c FROM Concerto c WHERE c.genere = :params", Concerto.class);
+        return query.getResultList();
+
+    }
+    public List<PartitaDiCalcio> getPartiteVinteInCasa(PartitaDiCalcio partitaDiCalcio){
+        TypedQuery<PartitaDiCalcio> query = entityManager.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.goalInCasa > p.goalOspiti", PartitaDiCalcio.class );
+        return query.getResultList();
+    }
+    public List<PartitaDiCalcio> getPartiteVinteInTrasferta(PartitaDiCalcio partitaDiCalcio){
+        TypedQuery<PartitaDiCalcio> query = entityManager.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.goalInCasa < p.goalOspiti", PartitaDiCalcio.class );
+        return query.getResultList();
+    }
 
 }
