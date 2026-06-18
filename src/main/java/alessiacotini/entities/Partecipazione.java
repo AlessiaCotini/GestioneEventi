@@ -22,9 +22,9 @@ public class Partecipazione {
     @JoinColumn(name = "persona_id", nullable = false)
     private Persona persona;
 
-    //@ManyToOne
-    //@JoinColumn(name = "evento_id", nullable = false)
-    //private Evento evento;
+    @ManyToOne
+    @JoinColumn(name = "evento_id", nullable = false)
+    private Evento evento;
 
     public Partecipazione(){
     }
