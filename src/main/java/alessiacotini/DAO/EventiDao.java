@@ -36,4 +36,10 @@ public class EventiDao {
         transazione.commit();
         System.out.println("L'evento "+ evDalDB.getTitolo()+ " è stato eliminato dal DATABASE");
     }
+
+    public void getConcertiInStreaming(){}
+    public void getConcertiPerGenere(){}
+    public void getPartiteVinteInCasa(){}
+    public void getPartiteVinteInTrasferta(){}
+
 }
