@@ -11,6 +11,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -47,7 +48,15 @@ public class Application {
          eventiDao.save(concertovasco);
          eventiDao.save(concertooasis);
 
-         
+         List<Concerto> concerti = new ArrayList<>();
+         concerti.add(concertothecure);
+         concerti.add(concertokneecap);
+         concerti.add(concertoblink);
+         concerti.add(concertovasco);
+         concerti.add(concertooasis);
+
+         List<Concerto> concertistrem = eventiDao.getConcertiInStreaming(concerti);
+        System.out.println(concertistrem);
 
         System.out.println("Hello");
     }
