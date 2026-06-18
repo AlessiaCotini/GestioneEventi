@@ -44,7 +44,7 @@ public abstract class Evento {
         this.descrizione = descrizione;
         this.tipoevento = tipoevento;
         this.numeromax = numeromax;
-        this.location = new Location();
+        this.location = location;
     }
 
     public String getTitolo() {
