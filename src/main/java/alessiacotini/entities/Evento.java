@@ -38,14 +38,14 @@ public abstract class Evento {
 
 
     public Evento(){};
-    public Evento (String titolo, LocalDate dataevento,String descrizione,TipoEvento tipoevento,int numeromax){
+    public Evento (String titolo, LocalDate dataevento,String descrizione,TipoEvento tipoevento,int numeromax, Location location){
         this.titolo = titolo;
         this.dataevento= dataevento;
         this.descrizione = descrizione;
         this.tipoevento = tipoevento;
         this.numeromax = numeromax;
+        this.location = new Location();
     }
-
 
     public String getTitolo() {
         return titolo;

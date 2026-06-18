@@ -59,5 +59,9 @@ public class EventiDao {
         TypedQuery<PartitaDiCalcio> query = entityManager.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.goalInCasa < p.goalOspiti", PartitaDiCalcio.class );
         return query.getResultList();
     }
+    public List<PartitaDiCalcio> getPartitePareggiate(PartitaDiCalcio partitaDiCalcio){
+        TypedQuery<PartitaDiCalcio> query = entityManager.createQuery("SELECT p FROM PartitaDiCalcio p WHERE p.goalInCasa = p.goalOspiti", PartitaDiCalcio.class );
+        return query.getResultList();
+    }
 
 }

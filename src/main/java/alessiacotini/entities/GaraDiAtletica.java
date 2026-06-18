@@ -26,8 +26,8 @@ public class GaraDiAtletica extends Evento{
     public Persona vincitore;
 
     public GaraDiAtletica(){}
-    public GaraDiAtletica(String titolo, LocalDate dataevento, String descrizione, TipoEvento tipoevento, int numeromax, List<Persona> set_atleti, Persona vincitore){
-        super(titolo, dataevento, descrizione, tipoevento, numeromax);
+    public GaraDiAtletica(String titolo, LocalDate dataevento, String descrizione, TipoEvento tipoevento, int numeromax, List<Persona> set_atleti, Persona vincitore,Location location){
+        super(titolo, dataevento, descrizione, tipoevento, numeromax, location);
         this.set_atleti = set_atleti;
         this.vincitore = vincitore;
     }

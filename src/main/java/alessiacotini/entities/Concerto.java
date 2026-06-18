@@ -15,10 +15,10 @@ public class Concerto extends Evento{
     private boolean streaming;
 
     public Concerto(){}
-    public Concerto(String titolo, LocalDate dataevento, String descrizione, TipoEvento tipoevento, int numeromax, Generes genere, boolean streaming){
-        super(titolo, dataevento, descrizione, tipoevento, numeromax);
+    public Concerto(String titolo, LocalDate dataevento, String descrizione, TipoEvento tipoevento, int numeromax, Generes genere, boolean streaming, Location location){
+        super(titolo, dataevento, descrizione, tipoevento, numeromax, location);
         this.genere = genere;
-        this.streaming = false;
+        this.streaming = streaming;
 
         //PER ALESSIA I CONCERTI IN STREAMING NON ESISTONO
     }
